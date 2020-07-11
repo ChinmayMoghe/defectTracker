@@ -12,19 +12,12 @@
     overflow-y: scroll;
 }
 
-.view-defect-table > tbody {
-    overflow-y: scroll;
-}
-
-.view-defect-table > thead.view-defect-table-header{
-    position: sticky;
-    top:0;
-}
 
 .view-defect-table > thead.view-defect-table-header > tr th {
-    position: relative;
-    background-color: #9f9f89;
-    color:#000;
+    position: sticky;
+    background-color: rgb(58, 53, 53);
+    color:#fff;
+    top:0;
 }
 
 .view-defect-table > thead.view-defect-table-header > tr th::after {
@@ -47,12 +40,22 @@
     border-bottom: 1px solid #FFF;
 }
 
+.view-defect-table > thead.view-defect-table-header > tr th::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom:0;
+    right: -1px;
+    height: 100%;
+    border-top: 1px solid #FFF;
+}
+
 
 .view-defect-table > tr,td,th {
     border: 1px solid #fff;
     text-align: center;
     padding: 5px;
-    background-color:rgb(31, 14, 91);
+    background-color:rgb(37, 33, 33);
 }
 
 .view-defect-table-header {

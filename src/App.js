@@ -8,9 +8,9 @@ const App = () => {
         <div className="app-container">
             <div className="app-header"><h1>DEFECT TRACKER</h1></div>
             <div className="app-body">
-                <LoginComponent />
+                {/* <LoginComponent /> */}
                 {/* <AddDefectComponent /> */}
-                {/* <ViewComponent></ViewComponent> */}
+                <ViewComponent />
             </div>
         </div>
     );
