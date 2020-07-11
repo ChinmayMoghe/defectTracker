@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import LoginFormComponent from './components/LoginComponent';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LoginFormComponent />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
