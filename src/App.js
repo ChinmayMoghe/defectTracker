@@ -3,7 +3,7 @@ import './App.css';
 import LoginComponent from './components/LoginComponent';
 import AddDefectComponent from './components/AddDefectComponent';
 import ViewComponent from './components/ViewDefectComponent';
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 const App = () => {
     return (
         <div className="app-container">
