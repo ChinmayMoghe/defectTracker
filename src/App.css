@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: yellow;
+    background-color: rgb(193, 204, 41);
     font-family: 'Varela Round', sans-serif;
 }
 
@@ -27,7 +27,7 @@ select,input[type="text"],input[type="password"] {
     content: '';
     grid-column: 1/-1;
     grid-row: 1/3;
-    background-color: rgb(5, 27, 63);
+    background-color: rgb(27 135 95);
 }
 
 .app-header {

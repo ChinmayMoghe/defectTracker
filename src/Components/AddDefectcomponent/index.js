@@ -1,5 +1,5 @@
 import React from 'react';
-import './AddDefectComponent.css';
+import './style.css';
 
 const AddDefectComponent = () => {
     return (

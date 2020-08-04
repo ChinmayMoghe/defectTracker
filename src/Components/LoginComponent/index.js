@@ -1,9 +1,22 @@
 import React from 'react';
-import './LoginComponent.css';
-const LoginComponent = () => {
+import './style.css';
+import { connect } from 'react-redux';
+import { loginUserAction } from '../../appState/actions/authenticationActions';
+
+
+const LoginComponent = ({ loginUserAction, response }) => {
+    console.log(response);
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const username = event.target.empid.value;
+        const password = event.target.pass.value;
+        const data = { username, password };
+        loginUserAction(data);
+    };
+
     return (
         <div className={"login-form-container"}>
-            <form className={"login-form"}>
+            <form onSubmit={handleLogin} className={"login-form"}>
                 <div className={"input-group"}>
                     <label className={"input-label"} htmlFor="empid">EMPLOYEE ID</label>
                     <input type="text" name="empid" id="empid" />
@@ -20,4 +33,10 @@ const LoginComponent = () => {
     );
 };
 
-export default LoginComponent;
+const mapStateToProps = (response) => ({ response });
+
+const mapDispatchToProps = {
+    loginUserAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

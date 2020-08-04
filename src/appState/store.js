@@ -1,13 +1,15 @@
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+
+import rootReducer from './reducers/index';
+import rootSaga from './sagas/index';
+
 const configureStore = ()=> {
+    const sagaMiddleware = createSagaMiddleware();
     return {
-        roles:["tester","developer"],
-        defectTypes: ["UI","Boundary Related","Error Handling","Control flow",],
-        priorityLevels:["Low","Medium","High"],
-        defectStatus:["Open","Closed"],
-        /*{defectType:'UI',description:'Text missing for header',priority:'Medium',status:'open'}*/
-        openDefects:[],
-        closedDefects:[]
-    }
+        ...createStore(rootReducer,applyMiddleware(sagaMiddleware)),
+        runSaga: sagaMiddleware.run(rootSaga)
+    };
 };
 
 export default configureStore;
