@@ -2,18 +2,26 @@ import React from 'react';
 import './App.css';
 import LoginComponent from './Components/LoginComponent/';
 import AddDefectComponent from './Components/AddDefectcomponent/';
-import ViewComponent from './Components/ViewDefectComponent/';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import DefectListComponent from './Components/DefectListComponent/';
+import { Switch, withRouter } from 'react-router-dom';
+import AuthRoute from './Components/HOCComponents/AuthComponent/index';
+import RegisterComponent from './Components/RegisterComponent';
+
 const App = (props) => {
     return (
         <div className="app-container">
             <div className="app-header"><h1>DEFECT TRACKER</h1></div>
             <div className="app-body">
                 <Switch>
-                    <Route path='/viewdefect' component={ViewComponent} />
-                    <Route path='/adddefect' component={AddDefectComponent} />
-                    <Route path='/login' component={LoginComponent} />
-                    <Route path='/' component={LoginComponent} />
+                    <AuthRoute type="private" path='/defectlist'>
+                        <DefectListComponent />
+                    </AuthRoute>
+                    <AuthRoute type="private" path='/adddefect'>
+                        <AddDefectComponent />
+                    </AuthRoute>
+                    <AuthRoute type="public" path='/register' component={RegisterComponent}/>
+                    <AuthRoute type="public" path='/login' component={LoginComponent} />
+                    <AuthRoute type="public" path='/' component={LoginComponent} />
                 </Switch>
             </div>
         </div>

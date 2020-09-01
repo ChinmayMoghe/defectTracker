@@ -3,17 +3,15 @@ import './style.css';
 import { connect } from 'react-redux';
 import { loginUserAction } from '../../appState/actions/authenticationActions';
 
-
 const LoginComponent = ({ loginUserAction, response }) => {
-    console.log(response);
     const handleLogin = (event) => {
+        console.log(response);
         event.preventDefault();
         const username = event.target.empid.value;
         const password = event.target.pass.value;
         const data = { username, password };
         loginUserAction(data);
     };
-
     return (
         <div className={"login-form-container"}>
             <form onSubmit={handleLogin} className={"login-form"}>
