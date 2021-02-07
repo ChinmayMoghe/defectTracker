@@ -1,11 +1,10 @@
 import React from 'react';
-import './style.css';
 import { connect } from 'react-redux';
+import './style.css';
 import { loginUserAction } from '../../appState/actions/authenticationActions';
 
-const LoginComponent = ({ loginUserAction, response }) => {
+const LoginComponent = ({ loginUserAction }) => {
     const handleLogin = (event) => {
-        console.log(response);
         event.preventDefault();
         const username = event.target.empid.value;
         const password = event.target.pass.value;
@@ -31,10 +30,8 @@ const LoginComponent = ({ loginUserAction, response }) => {
     );
 };
 
-const mapStateToProps = (response) => ({ response });
-
 const mapDispatchToProps = {
     loginUserAction
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
+export default connect(null, mapDispatchToProps)(LoginComponent);

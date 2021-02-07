@@ -1,5 +1,5 @@
 import { put, call } from 'redux-saga/effects';
-import { loginUserService } from '../services/authenticationService';
+import { loginUserService,registrationService } from '../services/authenticationService';
 
 import * as types from '../actions/actions'
 
@@ -11,3 +11,12 @@ export function* loginSaga(payload) {
     yield put({ type: types.LOGIN_USER_ERROR, error });
   }
 }
+
+export function* registerSaga(payload) {
+  try {
+    const response = yield call(registrationService,payload);
+    yield put({type:types.REGISTER_USER_SUCCESS,response});
+  } catch(error) {
+    yield put({type:types.REGISTER_USER_ERROR, error});
+  }
+} 

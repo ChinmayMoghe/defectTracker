@@ -5,3 +5,10 @@ export const loginUserAction = (user) => {
     user
   }
 };
+
+export const registerUserAction = (user) => {
+  return {
+    type: types.REGISTER_USER,
+    user
+  }
+};
